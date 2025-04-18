@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sprunki remaid</title>
+
+    <script src="config/main.js" type="module"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100vh;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe id="<iframe src="https://sprunki-remaid.netlify.app/" 
+        style="width:100vw; height:100vh; border:none; margin:0; padding:0; overflow:hidden;" 
+        allowfullscreen 
+        loading="lazy">
+</iframe>
+"></iframe>
+
+    <script>
+      var serverUrl1 = "https://gms.parcoil.com";
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const gameUrl = urlParams.get("gameurl");
+
+      if (!gameUrl) {
+        alert("Game URL not provided!");
+        window.location.href = "/"; // Redirect to homepage if game URL is missing
+      } else {
+        const embedUrl = `${serverUrl1}/${gameUrl}`;
+        document.getElementById("gameFrame").src = embedUrl;
+      }
+    </script>
+  </body>
+</html>
